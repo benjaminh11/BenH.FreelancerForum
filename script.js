@@ -60,14 +60,16 @@ function render() {
   const freelancerElements = listings.map((listing) => {
     const freelancerElements = document.createElement("li");
     const textAdd =
-      (freelancerElements.innerText = ` ${listing.name}, ${listing.occupation}, ${listing.rate}`);
+      (freelancerElements.innerText = ` ${listing.name}, ${listing.occupation}, $${listing.rate}`);
     return freelancerElements;
   });
   freelancerList.replaceChildren(...freelancerElements);
 
+  // grab reference to our average rate html element
   const averageDisplay = document.querySelector("#average-rate");
+  //create html that holds our aaverage rate number
   const averageElements = document.createElement("li");
-  averageElements.innerText = `The average rate is ${getMean().toFixed(2)}`;
+  averageElements.innerText = `The average rate is $${getMean().toFixed(2)}`;
   averageDisplay.replaceChildren(averageElements);
 }
 
